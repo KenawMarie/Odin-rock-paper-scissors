@@ -1,17 +1,18 @@
 function getComputerChoice(){
-let r=Math.random()
-if(0<r<=0.33){
-    console.log('paper')
-}
-else if(0.33<r<=0.67){
-    console.log('rock')
-}
-else{
-    console.log('scissors')
-}
+    let RockPaperScissors = "rock,paper,scissors"
+    let randomNumber = Math.floor(Math.random()*3)
+    if(randomNumber === 0){
+    console.log(RockPaperScissors.slice(0,4))
+    }
+    else if(randomNumber === 1){
+    console.log(RockPaperScissors.slice(5,10))
+    }
+    else{
+    console.log(RockPaperScissors.slice(11))
+    }
 }
 
-
+getComputerChoice()
 
 
 
