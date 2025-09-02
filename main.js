@@ -87,6 +87,9 @@ function playGame(){
 
     for(let i=0;i<5;i++){
         playRound(getHumanChoice(),getComputerChoice());
+        if(getHumanChoice()===null || getHumanChoice()===''){
+            break;
+        }
     }
    if(humanScore > computerScore){
      console.log( `Congratulation! you are the winner! 
@@ -125,5 +128,5 @@ playGame()
     10. move the the playRound function and the score variables.
     11. use loops to play the game five time.
     12. use conditionals to announce the winner.
-    
+
 */
