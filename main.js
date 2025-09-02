@@ -16,65 +16,72 @@ function getComputerChoice(){
 }
 
 
-// getComputerChoice()
-
 // ========= get Human Choice ======
 
 function getHumanChoice(){
-    let choice= prompt('choose rock, paper, scissors');
-    let loweredCase= choice.toLowerCase()
-    return loweredCase
+    let humanChoice= prompt('choose rock, paper, scissors');
+    if(humanChoice===null || humanChoice===''){
+        return null
+    }
+    let choice=humanChoice.toLowerCase();
+    
+    if(choice==='rock' || choice==='paper' ||choice==='scissors'){
+        return choice
+    }
+    else{
+      return  getHumanChoice()
+    }
+
 }
 
-// getHumanChoice()
 
 
 
-// =============== declare score variables ============
 
-let humanScore = 0;
-let computerScore = 0; 
+function playGame(){
+    // =============== declare score variables ============
 
-  // ========= the logic to play a single round =========
+    let humanScore = 0;
+    let computerScore = 0; 
 
- let humanSelection=getHumanChoice();
- let computerSelection=getComputerChoice(); 
+    // ========= the logic to play a single round =========
 
-function playRound(humanChoice,computerChoice){
-    
-    if(humanChoice === 'paper' && computerChoice === 'rock'){
-        humanScore += 1;
-        return `you win Rock beats Scissors. human score: ${humanScore}`;
+
+    function playRound(humanChoice,computerChoice){
+        
+        if(humanChoice === 'paper' && computerChoice === 'rock' ||
+            humanChoice === 'rock' && computerChoice === 'scissors' ||
+            humanChoice === 'scissors' && computerChoice === 'paper')
+        {
+
+            humanScore += 1;
+            console.log(`you won ${humanChoice} beats ${computerChoice}`);
+         
+        }
+
+        else if(humanChoice === 'rock' && computerChoice === 'paper' ||
+                humanChoice === 'scissors' && computerChoice === 'rock' ||
+                humanChoice === 'paper' && computerChoice === 'scissors')
+        {
+
+            computerScore += 1;
+            console.log(`you lose ${computerChoice} beats ${humanChoice}`);
+            
+        }
+
+        else if(humanChoice===computerChoice){
+            computerScore +=0; humanScore += 0;
+            console.log(`it is a tie
+            Your choice: ${humanChoice}  
+            computer choice: ${computerChoice} `);
+        }
+        else{
+            return null
+        }
+        
         
     }
-    else if(humanChoice === 'rock' && computerChoice === 'paper'){
-        computerScore += 1;
-        return `you lose! paper beats rock Computer score: ${computerScore}`;
-    }
-    else if(humanChoice === 'rock' && computerChoice === 'scissors'){
-        humanScore += 1;
-        return `you win! rock beats scissors. human score: ${humanScore}`;
-    }
-    else if(humanChoice === 'scissors' && computerChoice === 'rock'){
-        computerScore += 1;
-        return `you lose! rock beats scissors Computer score: ${computerScore}`;
-    }
-    else if(humanChoice === 'paper' && computerChoice === 'scissors'){
-        computerScore += 1;
-        return `you lose! scissors beats paper Computer score: ${computerScore}`;
-    }
-    else if(humanChoice === 'scissors' && computerChoice === 'paper'){
-        humanScore += 1;
-        return `you win! scissors beats paper Computer score: ${computerScore}`;
-    }
-    else if(humanChoice === computerChoice){
-        return 'It is a tie';
-    }
-    
-    
 }
-
-  console.log(playRound(humanSelection,computerSelection));
 
 
 
@@ -91,4 +98,8 @@ function playRound(humanChoice,computerChoice){
     6. make your input  case insensitive.
     7. Write the code for your playRound function to console.log a string value representing the round winner.
     8. Increment the humanScore or computerScore variable based on the round winner.
+    9. create function named playGame.
+    10. move the the playRound function and the score variables.
+    11. use loops to play the game five time.
+    12. use conditionals to announce the winner
 */
