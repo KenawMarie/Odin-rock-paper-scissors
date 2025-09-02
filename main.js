@@ -87,9 +87,6 @@ function playGame(){
 
     for(let i=0;i<5;i++){
         playRound(getHumanChoice(),getComputerChoice());
-        if(getHumanChoice()===null || getHumanChoice()===''){
-            break;
-        }
     }
    if(humanScore > computerScore){
      console.log( `Congratulation! you are the winner! 
