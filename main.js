@@ -39,6 +39,7 @@ function getHumanChoice(){
 
 
 function playGame(){
+
     // =============== declare score variables ============
 
     let humanScore = 0;
@@ -79,12 +80,34 @@ function playGame(){
             return null
         }
         
-        
+        console.log(`
+        Your score: ${humanScore}
+        computer score: ${computerScore} `);
     }
+
+    for(let i=0;i<5;i++){
+        playRound(getHumanChoice(),getComputerChoice());
+    }
+   if(humanScore > computerScore){
+     console.log( `Congratulation! you are the winner! 
+      human score: ${humanScore}
+      Computer score: ${computerScore}`)
+   }
+   else if(humanScore < computerScore){
+     console.log(`I'm sorry! you lost! better luck next time! 
+      human score: ${humanScore}
+      Computer score: ${computerScore}`);
+   }
+   else{
+     console.log(`Wow! It's a tie!
+      human score: ${humanScore}
+      Computer score: ${computerScore}`); 
+   }
+
 }
 
 
-
+playGame()
 
 
 /*
@@ -101,5 +124,6 @@ function playGame(){
     9. create function named playGame.
     10. move the the playRound function and the score variables.
     11. use loops to play the game five time.
-    12. use conditionals to announce the winner
+    12. use conditionals to announce the winner.
+    
 */
