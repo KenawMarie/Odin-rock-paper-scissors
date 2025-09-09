@@ -3,36 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors|TOP</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
     <div class="container">
+        <h1>Rock Paper Scissors</h1>
         <div class="score">
-            <div class="humanScore"></div>
-            <div class="computerScore"></div>
+            <div class="humanScore">
+               <div class="emoji"> 🧑</div>
+                <p>Human score : <span class="hScore">0</span></p>
+            </div>
+            <div class="computerScore">
+                <div class="emoji">🤖</div>
+                <p>Computer score : <span class="cScore">0</span></p>
+            </div>
         </div>
         <div class="output">
-            <div class="humanChoice"></div>
-            <div class="computerChoice"></div>
+            <div class="humanChoice">rock</div>
+            <div class="computerChoice">rock</div>
         </div>
-        <div class="winnerAnnounce"></div>
+        <div class="winnerAnnounce"><h4>I'm sorry! you lost! better luck next time!</h4></div>
         <div class="rps">
-            <div class="rock">
-                <div class="rockEmoji"><img src="./images/rock.png" alt="rock"></div>
+            <div class="game">
+                <div id="rockEmoji" class="emoji">✊</div>
                 <button class="rockBtn">Rock</button>
             </div>
-            <div class="paper">
-                <div class="paperEmoji"><img src="./images/paper.png" alt="paper"></div>
-                <button class="paperBtn">Paper</button>
+            <div class="game">
+                <div  id="paperEmoji" class="emoji">✋</div>
+                <button class="paperBtn" >Paper</button>
             </div>
-            <div class="scissors">
-                <div class="scissorsEmoji"><img src="./images/scissors.png" alt="scissors"></div>
+            <div class="game">
+                <div id="scissorsEmoji" class="emoji">✌️</div>
                 <button class="scissorsBtn">Scissors</button>
             </div>
         </div>
     </div>
     
-    <script src="main.js"></script>
+    <script src="meain.js"></script>
 </body>
 </html>
