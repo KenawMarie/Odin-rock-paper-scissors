@@ -1,7 +1,22 @@
+const body=document.querySelector('body')
+const hScore=document.querySelector('.hScore');
+const cScore=document.querySelector('.cScore');
+const winner=document.querySelector('.winnerAnnounce')
+const buttons=document.querySelectorAll('button');
+const humanChoice=document.querySelector('.humanChoice')
+const computerChoice=document.querySelector('.computerChoice')
+
+body.addEventListener('click',()=>{
+   return body.style.backgroundColor= `rgb(${random(255)},${random(255)},${random(255)})`
+})
+
+function random(num){
+    return Math.floor(Math.random() *(num +1));
+}
 //   ====== get Computer Choice =======
 
 function getComputerChoice(){
-    let choice='rock paper scissors';
+    let choice='Rock Paper Scissors';
     let randomNumber= Math.floor(Math.random()*3);
     if(randomNumber === 0){
         return choice.slice(0,4)
@@ -14,102 +29,74 @@ function getComputerChoice(){
     }
 
 }
-
+let choice=getComputerChoice();
 
 // ========= get Human Choice ======
-
-function getHumanChoice(){
-    let humanChoice= prompt('choose rock, paper, scissors');
-    if(humanChoice===null || humanChoice===''){
-        return null
-    }
-    let choice=humanChoice.toLowerCase();
-    
-    if(choice==='rock' || choice==='paper' ||choice==='scissors'){
-        return choice
-    }
-    else{
-      return  getHumanChoice()
-    }
-
+for(const button of buttons){
+    button.addEventListener('click',playRound);
 }
-
-
-
-
-
-function playGame(){
 
     // =============== declare score variables ============
 
     let humanScore = 0;
     let computerScore = 0; 
-
+    
     // ========= the logic to play a single round =========
 
-
-    function playRound(humanChoice,computerChoice){
-        
-        if(humanChoice === 'paper' && computerChoice === 'rock' ||
-            humanChoice === 'rock' && computerChoice === 'scissors' ||
-            humanChoice === 'scissors' && computerChoice === 'paper')
+    function playRound(e){
+        if(e.target.textContent === 'Paper' && choice === 'Rock' ||
+            e.target.textContent === 'Rock' && choice === 'Scissors' ||
+            e.target.textContent === 'Scissors' && choice === 'Paper')
         {
-
-            humanScore += 1;
-            console.log(`you won ${humanChoice} beats ${computerChoice}`);
-         
+            humanChoice.textContent=`${e.target.previousElementSibling.textContent}`
+            if(choice==='Rock'){
+                computerChoice.textContent=`${buttons[0].previousElementSibling.textContent}`
+            }
+            else if(choice==='Paper'){
+                 computerChoice.textContent=`${buttons[1].previousElementSibling.textContent}`
+            }
+            else{
+                 computerChoice.textContent=`${buttons[2].previousElementSibling.textContent}`
+            }
+            hScore.textContent += 1;
+            winner.textContent=`you won ${e.target.textContent} beats ${choice}`;
         }
 
-        else if(humanChoice === 'rock' && computerChoice === 'paper' ||
-                humanChoice === 'scissors' && computerChoice === 'rock' ||
-                humanChoice === 'paper' && computerChoice === 'scissors')
-        {
-
-            computerScore += 1;
-            console.log(`you lose ${computerChoice} beats ${humanChoice}`);
+        else if(e.target.textContent === 'Rock' && choice === 'Paper' ||
+                e.target.textContent === 'Scissors' && choice === 'Rock' ||
+                e.target.textContent === 'Paper' && choice === 'Scissors')
+        {console.log();
+            humanChoice.textContent=`${e.target.previousElementSibling.textContent}`
+            if(choice==='Rock'){
+                computerChoice.textContent=`${buttons[0].previousElementSibling.textContent}`
+            }
+            else if(choice==='Paper'){
+                 computerChoice.textContent=`${buttons[1].previousElementSibling.textContent}`
+            }
+            else{
+                 computerChoice.textContent=`${buttons[2].previousElementSibling.textContent}`
+            }
+            cScore.textContent +=1;
+            winner.textContent=`you lose ${choice} beats ${ e.target.textContent}`;
             
         }
 
-        else if(humanChoice===computerChoice){
-            computerScore +=0; humanScore += 0;
-            console.log(`it is a tie
-            Your choice: ${humanChoice}  
-            computer choice: ${computerChoice} `);
-        }
-        else{
-            return null
+        else if(e.target.textContent===choice){
+            humanChoice.textContent=`${e.target.previousElementSibling.textContent}`
+            computerChoice.textContent=`${e.target.previousElementSibling.textContent}`
+            winner.textContent=`it is a tie
+            Your choice: ${e.target.textContent}  
+            computer choice: ${choice} `;
         }
         
-        console.log(`
-        Your score: ${humanScore}
-        computer score: ${computerScore} `);
+        
     }
 
-    for(let i=0;i<5;i++){
-        playRound(getHumanChoice(),getComputerChoice());
-    }
-   if(humanScore > computerScore){
-     console.log( `Congratulation! you are the winner! 
-      human score: ${humanScore}
-      Computer score: ${computerScore}`)
-   }
-   else if(humanScore < computerScore){
-     console.log(`I'm sorry! you lost! better luck next time! 
-      human score: ${humanScore}
-      Computer score: ${computerScore}`);
-   }
-   else{
-     console.log(`Wow! It's a tie!
-      human score: ${humanScore}
-      Computer score: ${computerScore}`); 
-   }
-
-}
 
 
-playGame()
 
 
+ 
 /*
     ===== pseudocode =======
 
