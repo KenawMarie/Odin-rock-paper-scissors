@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Epunda Slab',sans-serif;
+    height:100vh;
+}
+
+h1{
+    text-align: center;
+}
+
+.container{
+    width: 80%;
+    min-height: 100%;
+    margin: 0 auto;
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.score,
+.output{
+    display: flex;
+    gap: 5rem;
+    font-size: 3em;
+}
+.winnerAnnounce{
+    font-size: 2em;
+}
+.rps{
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 10rem;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    font-family:'Epunda Slab',sans-serif;
+    font-size: 2em;
+    border-radius: 0.5em;
+}
+button:hover,
+button:focus{
+    cursor: pointer;
+}
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emoji{
+    font-size: 6rem;
+    
+}
