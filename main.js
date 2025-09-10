@@ -1,14 +1,17 @@
-const body=document.querySelector('body')
-const container=document.querySelector('.container')
+ const body=document.querySelector('body')
+ const container=document.querySelector('.container')
 const hScore=document.querySelector('.hScore');
 const cScore=document.querySelector('.cScore');
 const winner=document.querySelector('.winnerAnnounce')
 const buttons=document.querySelectorAll('button');
 const humanChoice=document.querySelector('.humanChoice')
 const computerChoice=document.querySelector('.computerChoice')
+const score=document.querySelector('.score')
+const rps=document.querySelector('.rps')
+const h1=document.querySelector('h1')
 
 body.addEventListener('click',()=>{
-   return body.style.backgroundColor= `rgb(${random(255)},${random(255)},${random(255)})`
+    return body.style.backgroundColor= `rgb(${random(255)},${random(255)},${random(255)})`
 })
 
 function random(num){
@@ -29,38 +32,17 @@ for(const button of buttons){
     button.addEventListener('click',playRound);
 }
 
-
 // ========= the logic to play a single round =========
 
 function playRound(e){
     
-    if(humanScore===5 || computerScore===5){
-        if(humanScore>computerScore){
-            container.style.backgroundColor='gold'
-            alert('bravo')
+   
+    function getComputerChoice(){
+        let choice='Rock Paper Scissors';
+        let randomNumber= Math.floor(Math.random()*3);
+        if(randomNumber === 0){
+            return choice.slice(0,4)
         }
-        else if(humanScore<computerScore){
-            container.style.backgroundColor='brown'
-            alert('improve for the next time')
-        }
-        else{
-            container.style.backgroundColor='aqua'
-            alert('that is fine')
-        }
-        confirm('do you wanna restart the game')
-        if(confirm){
-            
-        }
-        
-    }
-    console.log(humanScore);
-    console.log(computerScore);
-        function getComputerChoice(){
-            let choice='Rock Paper Scissors';
-            let randomNumber= Math.floor(Math.random()*3);
-            if(randomNumber === 0){
-                return choice.slice(0,4)
-            }
             else if(randomNumber === 1){
                 return choice.slice(5,10)
             }
@@ -70,12 +52,12 @@ function playRound(e){
             
         }
         let choice=getComputerChoice();
-        console.log(choice);
+        
         if(e.target.textContent === 'Paper' && choice === 'Rock' ||
             e.target.textContent === 'Rock' && choice === 'Scissors' ||
             e.target.textContent === 'Scissors' && choice === 'Paper')
             {
-            humanChoice.textContent=`${e.target.previousElementSibling.textContent}`
+                humanChoice.textContent=`${e.target.previousElementSibling.textContent}`
             if(choice==='Rock'){
                 computerChoice.textContent=`${buttons[0].previousElementSibling.textContent}`
             }
@@ -107,7 +89,7 @@ function playRound(e){
             }
             computerScore +=1
             cScore.textContent =computerScore;
-            container.style.backgroundColor='red'
+            container.style.backgroundColor='#8B0000'
             winner.textContent=`you lose ${choice} beats ${ e.target.textContent}`;
             
         }
@@ -115,15 +97,84 @@ function playRound(e){
         else if(e.target.textContent===choice){
             humanChoice.textContent=`${e.target.previousElementSibling.textContent}`
             computerChoice.textContent=`${e.target.previousElementSibling.textContent}`
+            container.style.backgroundColor='skyblue'
             winner.textContent=`it is a tie
             Your choice: ${e.target.textContent}  
             computer choice: ${choice} `;
-            container.style.backgroundColor='skyblue'
         }
+        
+        if(humanScore===5 || computerScore===5){
+            for(const button of buttons){
+                button.removeEventListener('click',playRound);
+            }
+            const para=document.createElement('p');
+            if(humanScore>computerScore){
+                
+                container.textContent='' ;
+                container.style.backgroundColor='gold'
+                para.textContent='🎉🎉🎉🎉🎉 🥳🥳🥳🥳 congratulation !  you are the winner ! 🎉🎉'
+                para.style.fontSize='3em'
+                para.style.color='#000080'
+                container.appendChild(para)
+            }
+            else if(humanScore<computerScore){
+                
+                container.textContent=''
+                container.style.backgroundColor='#add8e6'
+                para.textContent=' 😔😔😔😔😔 Sorry ! you lost! better luck next time!'
+                para.style.color='#808080'
+                para.style.fontSize='3em'
+                container.appendChild(para)
+            }
+            else{
+                console.log('it is draw');
+                
+            }
+            
+            const div=document.createElement('div');
+            div.textContent='do you wanna restart the game'
+            div.style.fontSize='1.5em'
+            div.className='pop-up'
 
+            const divBtn=document.createElement('div')
+            divBtn.className='divBtn'
+
+            const okBtn=document.createElement('button')
+            okBtn.className='btns'
+            okBtn.textContent='Ok'
+
+            const cancelBtn=document.createElement('button')
+            cancelBtn.className='btns'
+            cancelBtn.textContent='Cancel'
+            divBtn.appendChild(okBtn)
+            divBtn.appendChild(cancelBtn)
+            div.appendChild(divBtn)
+            container.appendChild(div)
+            okBtn.addEventListener('click',(e)=>{
+                if(e.target.textContent==='Ok'){
+                location.reload()
+                };
+            })
+            cancelBtn.addEventListener('click',(e)=>{
+                if(e.target.textContent==='Cancel'){
+                    container.textContent=''
+                    container.textContent='I feel sorry to see you go! 😔'
+                    container.style.fontSize='2em'
+                };
+            })
+            
+        }
         
         
-        console.log(hScore.textContent);
+    }
+    if(humanScore===5 || computerScore===5){
+        console.log(humanScore);
+        console.log(computerScore);
+        winner.textContent= confirm('do you wanna restart the game')
+        if(confirm){
+            
+        }
+        
     }
     
 

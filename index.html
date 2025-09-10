@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Rock Paper Scissors|TOP</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissors|TOP</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -23,23 +24,31 @@
             <div class="humanChoice left"></div>
             <div class="computerChoice right"></div>
         </div>
-        <div class="winnerAnnounce"></div>
+        <div class="winnerAnnounce">
+            <img  alt="">
+        </div>
         <div class="rps">
             <div class="game">
                 <div id="rockEmoji" class="emoji">✊</div>
-                <button class="rockBtn">Rock</button>
+                <button class="btn">Rock</button>
             </div>
             <div class="game">
                 <div  id="paperEmoji" class="emoji">✋</div>
-                <button class="paperBtn" >Paper</button>
+                <button class="btn" >Paper</button>
             </div>
             <div class="game">
                 <div id="scissorsEmoji" class="emoji">✌️</div>
-                <button class="scissorsBtn">Scissors</button>
+                <button class="btn">Scissors</button>
             </div>
         </div>
     </div>
-    
-    <script src="main.js"></script>
+    <footer id="main-footer">
+        <p>Copyright &copy; 2025  Odin Rock Paper Scissors</p>
+        <div class="img">
+            <img src="./images/The Odin Project_idkh09PaW6_0.png" alt="">
+            <img src="./images/github-mark.png" alt="">
+        </div>
+    </footer>
 </body>
+
 </html>
