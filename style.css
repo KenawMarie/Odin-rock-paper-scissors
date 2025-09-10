@@ -40,7 +40,7 @@ h1{
 .output{
     display: flex;
     gap: 5rem;
-    font-size:2em;
+    font-size:3em;
     
 }
 .winnerAnnounce{
@@ -93,7 +93,7 @@ button:focus{
 }
 
 .emoji{
-    font-size: 6rem;
+    font-size: 4rem;
 }
 img{
     width: 40px;

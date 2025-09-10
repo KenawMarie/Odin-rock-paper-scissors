@@ -17,10 +17,9 @@ body.addEventListener('click',()=>{
 function random(num){
     return Math.floor(Math.random() *(num +1));
 }
-//   ====== get Computer Choice =======
 
 
-// ========= get Human Choice ======
+
 
 // =============== declare score variables ============
 
@@ -32,7 +31,6 @@ for(const button of buttons){
     button.addEventListener('click',playRound);
 }
 
-// ========= the logic to play a single round =========
 
 function playRound(e){
     
@@ -107,32 +105,33 @@ function playRound(e){
             for(const button of buttons){
                 button.removeEventListener('click',playRound);
             }
+            const scoreAnnounce=document.createElement('div')
             const para=document.createElement('p');
             if(humanScore>computerScore){
-                
-                container.textContent='' ;
+
+                container.textContent=''
+                scoreAnnounce.textContent=`Human Score: ${humanScore}  |  Computer Score: ${computerScore}` ;
+                scoreAnnounce.style.fontSize='2rem'
+                container.appendChild(scoreAnnounce)
                 container.style.backgroundColor='gold'
-                para.textContent='🎉🎉🎉🎉🎉 🥳🥳🥳🥳 congratulation !  you are the winner ! 🎉🎉'
+                para.textContent=`🎉🎉🎉🎉🎉 🥳🥳🥳🥳 congratulations !  you are the winner ! 🎉🎉`
                 para.style.fontSize='3em'
-                para.style.color='#000080'
                 container.appendChild(para)
             }
             else if(humanScore<computerScore){
                 
                 container.textContent=''
+                scoreAnnounce.textContent=`Human Score: ${humanScore}  |  Computer Score: ${computerScore}`;
+                scoreAnnounce.style.fontSize='2rem';
+                container.appendChild(scoreAnnounce)
                 container.style.backgroundColor='#add8e6'
-                para.textContent=' 😔😔😔😔😔 Sorry ! you lost! better luck next time!'
-                para.style.color='#808080'
+                para.textContent=' 😔😔😔 🤷🤷 Sorry ! you lost! better luck next time!'
                 para.style.fontSize='3em'
                 container.appendChild(para)
             }
-            else{
-                console.log('it is draw');
-                
-            }
             
             const div=document.createElement('div');
-            div.textContent='do you wanna restart the game'
+            div.textContent='Do you wanna restart the game'
             div.style.fontSize='1.5em'
             div.className='pop-up'
 
@@ -158,7 +157,7 @@ function playRound(e){
             cancelBtn.addEventListener('click',(e)=>{
                 if(e.target.textContent==='Cancel'){
                     container.textContent=''
-                    container.textContent='I feel sorry to see you go! 😔'
+                    container.textContent='I feel sorry to see you go! 😔😔'
                     container.style.fontSize='2em'
                 };
             })
@@ -167,15 +166,7 @@ function playRound(e){
         
         
     }
-    if(humanScore===5 || computerScore===5){
-        console.log(humanScore);
-        console.log(computerScore);
-        winner.textContent= confirm('do you wanna restart the game')
-        if(confirm){
-            
-        }
-        
-    }
+    
     
 
 
