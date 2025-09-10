@@ -24,7 +24,7 @@ This is a solution to the [The Odin Project Rock Paper Scissors game project](ht
 
 ### Links
 
-- Live Site URL: [Rock Paper Scissors]()
+- Live Site URL: [Rock Paper Scissors](https://kenawmarie.github.io/Odin-rock-paper-scissors/)
 
 
 ### Built with
