@@ -15,7 +15,7 @@
 
 ## Overview
 
-This is a solution to the [The Odin Project Rock Paper Scissors game project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors). 
+This is a solution to the [The Odin Project: Rock Paper Scissors game project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors). 
 
 ### Screenshot
 
@@ -32,12 +32,12 @@ This is a solution to the [The Odin Project Rock Paper Scissors game project](ht
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- JS data types,functions loops
+- JS data types,functions and loops
 - Document Object Model(DOM)
 
 ### What I learned
 
-In this project i learnt how to a page  using css and html and make it interactive using JS specially the DOM Events and event Handler function
+In this project i learnt how to built a web page  using css and html and make it interactive using JS specially the DOM Events and event Handler function
 
 ### Continued development
 
@@ -51,4 +51,4 @@ i want to focus on doing more projects to solidify my knowledge.
 
 ## Acknowledgments
 
-my special thanks goes to first to [Free Code Camp](https://www.freecodecamp.org/) then [The Odin Project](https://www.theodinproject.com/).
+my special thanks goes to first to [The Odin Project](https://www.theodinproject.com/) and then [Free Code Camp](https://www.freecodecamp.org/).
